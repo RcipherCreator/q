@@ -4,7 +4,22 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include "colour.h"
+#include <time.h>
 
+
+
+void delay(double number_of_seconds)
+{
+    // Converting time into milli_seconds
+    int milli_seconds = 10000 * number_of_seconds;
+ 
+    // Storing start time
+    clock_t start_time = clock();
+ 
+    // looping till required time is not achieved
+    while (clock() < start_time + milli_seconds)
+        ;
+}
 char kbhit()
 {
     struct termios term;
