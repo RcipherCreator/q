@@ -9,14 +9,21 @@
 //197,61,61
 //45,58,152
 
-
-int main() {
+void delayd(double number_of_seconds)
+{
+    for(int i=0;i<17246/number_of_seconds;i++)printf(" \b");
+}
+void delaym(double number_of_seconds)
+{
+    for(int i=0;i<17246*number_of_seconds;i++)printf(" \b");
+}
+void printsprite(int FRAME_COUNT,int FRAME_HEIGHT, int FRAME_WIDTH,uint32_t data[][1024],double frameps) {
 	uint32_t guy;
-	float asdfghjkl;
+	
 	while(1)
-	for(int k=0;k<mafood_FRAME_COUNT;k++){
-for(int i=0;i<mafood_FRAME_HEIGHT;i++){for(int j=0;j<mafood_FRAME_WIDTH;j++){
-	guy=mafood_data[k][i*mafood_FRAME_WIDTH+j];
+	for(int k=0;k<FRAME_COUNT;k++){
+for(int i=0;i<FRAME_HEIGHT;i++){for(int j=0;j<FRAME_WIDTH;j++){
+	guy=data[k][i*FRAME_WIDTH+j];
 	if(guy!=0x00000000){
 	guy=guy-(guy/0x1000000)*0x1000000;
 	uint32_t a=guy/0x10000;
@@ -28,13 +35,15 @@ for(int i=0;i<mafood_FRAME_HEIGHT;i++){for(int j=0;j<mafood_FRAME_WIDTH;j++){
 	else printf("  ");
 	}
 	printf("\n");}
-		asdfghjkl=1/fps;
-		delay(asdfghjkl);
+		
+		delayd(frameps);
+		
 		clear();
 		gotoxy(1,1);
 		}
+}
 
-
-	
-  return 0;
+int main(){
+	printsprite(3,32,32,mafood_data,0.5);
+	return 0;
 }
