@@ -3,7 +3,7 @@
 #define mafood_FRAME_COUNT 3
 #define mafood_FRAME_WIDTH 32
 #define mafood_FRAME_HEIGHT 32
-#define fps 2
+#define fps 0.5
 /* Piskel data for "New Piskel" */
 
 static const uint32_t mafood_data[3][1024] = {
